@@ -1,0 +1,23 @@
+networks:
+  app_net_word:
+    external: false
+
+services:
+
+  db:
+    container_name: db_word
+    image: postgres
+    shm_size: 128mb
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASS}
+    ports:
+      - 5433:5432
+    volumes:
+      - db:/db/postgres/db_word
+    networks:
+      app_net_word:
+        aliases:
+          - app_word
+
+volumes:
+  db:

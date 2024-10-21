@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model WordHierarcky {
+  id                  Int                 @unique   @default(autoincrement())
+  word                String
+  parentId            Int?
+  parent              WordHierarcky?      @relation("WordHierarckyToSelf",fields: [parentId], references: [id])
+  children            WordHierarcky[]     @relation("WordHierarckyToSelf")
+  createdAt           DateTime                      @default(now())
+  updatedAt           DateTime                      @updatedAt
+}
