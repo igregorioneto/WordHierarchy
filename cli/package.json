@@ -23,6 +23,7 @@
   "scripts": {
     "migrate": "bun prisma migrate dev",
     "start": "bun run ./src/index.ts",
-    "start:dev": "bun run migrate && bun run ./src/index.ts"
+    "start:dev": "bun run migrate && bun run ./src/index.ts",
+    "debug": "bun run --inspect ./src/index.ts"
   }
 }
