@@ -48,7 +48,7 @@ export class PrismaWordHierarckyRepository implements WordHierarckyRepository {
         .filter((word: any) => word.parentId === parentId)
         .map((word: any) => (new WordHierarcky({
           id: word.id,
-          word: word.id,
+          word: word.word,
           parentId: word.parentId,
           children: buildTree(words, word.id)
         })));
