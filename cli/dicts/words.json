@@ -3,13 +3,18 @@
     "id": 20,
     "word": "Gato",
     "parentId": null,
-    "children": [
-      {
-        "id": 21,
-        "word": "Gato",
-        "parentId": 20,
-        "children": []
-      }
-    ]
+    "children": []
+  },
+  {
+    "id": 22,
+    "word": "Electricity",
+    "parentId": null,
+    "children": []
+  },
+  {
+    "id": 29,
+    "word": "algum 2",
+    "parentId": null,
+    "children": []
   }
 ]

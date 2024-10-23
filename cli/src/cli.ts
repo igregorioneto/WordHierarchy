@@ -1,4 +1,6 @@
 import { Command } from "commander";
+import { measureExecutationTime } from "./shared/utils/measureExecutationTime";
+import { loaderParameters } from "./shared/utils/loaderParameters";
 
 const program = new Command();
 
@@ -19,8 +21,11 @@ program
     const depth = options.depth;
     console.log('Nível da pesquisa: ', depth);
 
+    const metrics: { [key: string]: string } = {};
     if (options.verbose) {
-      console.log('Modo verbose ativado');
+      const loadTime = measureExecutationTime(() => loaderParameters(50));
+      metrics['Tempo de carregamento dos parâmetros'] = `${loadTime}ms`;
+      console.table(metrics);
     }
   })
 program.parse(process.argv);
